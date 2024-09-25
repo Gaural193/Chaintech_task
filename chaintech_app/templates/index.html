@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="{% static 'assets/style.css' %} ">
+</head>
+<body>
+
+   
+    <header>
+        <h1>Chaintech Network</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'form' %}">User Form</a></li>
+                <li><a href="{% url 'data' %}">User Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <main>
+            
+            <section id="dynamic-content">
+                <h2>Current Date and Time</h2>
+                <p>The current date and time is: {{ current_datetime }}</p> 
+            </section>
+            
+            <section id="quotes">
+                <h2>Random Quote</h2>
+                <p>{{ random_quote }}</p>
+            </section>
+            <!-- <section id="quotes">
+                <h2>Random Quote</h2>
+                <p>{{ random_quote }}</p>  
+                <p><em>— {{ author }}</em></p>  
+            </section> -->
+    </main>
+
+    <!-- Footer with Contact Information -->
+    <footer>
+        <p>Contact: makgaural193@gmail.com</p>
+        <p>&copy; 2024 ChainTech Network. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #001F3F; 
+            color: white; 
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            position: fixed; 
+            top: 0; 
+            z-index: 10; 
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px; 
+        }
+
+        
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #6A9AB0; 
+        }
+
+        /* Table container */
+        .user-data-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 1000px;
+            margin: 20px auto;
+            margin-top: 80px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .user-data-container h1{
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #001F3F;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #001F3F;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            .user-data-container {
+                width: 90%;
+            }
+
+            table, th, td {
+                font-size: 14px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chaintech Network</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li> 
+                <li><a href="{% url 'form' %}">Contact</a></li> 
+                <li><a href="#">Data</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <div class="user-data-container">
+        <h1>User Data</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            {% for user in data %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.dob }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No user data found.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Chaintech Network. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
