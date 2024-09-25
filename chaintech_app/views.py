@@ -9,6 +9,14 @@ def index(request):
         "The only limit to our realization of tomorrow is our doubts of today.",
         "The purpose of our lives is to be happy.",
         "Life is what happens when you're busy making other plans."
+        “When you forgive you win.”
+        “Forgiveness is the power to choose how things affect you.”
+        “Forgiveness is choosing to be happy.”
+        “Forgiveness is simply freeing ourselves from wanting to punish.”
+        “We experience what we intend for others.”
+        “Fear is wisdom as a child.”
+        “Forgiveness is always possible, but reconciliation is not always possible.”
+        “Forgiveness gives us the freedom to stay and the freedom to walk away.”
     ]
     random_quote = random.choice(quotes)  
     context = {
